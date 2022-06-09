@@ -28,7 +28,7 @@ $(function () {
   });
 
   // 基本路径
-  // const baseUrl = "http://www.liulongbin.top:3007";
+  const baseUrl = "http://www.liulongbin.top:3007";
 
   // 监听表单提交事件，发送注册请求
   $('#form_reg').submit((e) => {
@@ -37,8 +37,7 @@ $(function () {
     // 发起注册的请求
     $.ajax({
       type:'POST',
-      url: '/api/reguser',
-      // url: baseUrl +'/api/reguser',
+      url: baseUrl +'/api/reguser',
       data:{
         username:$('#form_reg [name=username]').val(),
         password:$('#form_reg [name=password]').val(),
@@ -58,8 +57,7 @@ $(function () {
     e.preventDefault();
     $.ajax({
       type: 'POST',
-      url:'/api/login',
-      // url:baseUrl + '/api/login',
+      url:baseUrl + '/api/login',
       data:$(this).serialize(),
       success: (res)=>{
         if(res.status!==0)return layer.msg('登录失败！');

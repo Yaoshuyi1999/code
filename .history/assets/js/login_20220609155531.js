@@ -37,8 +37,7 @@ $(function () {
     // 发起注册的请求
     $.ajax({
       type:'POST',
-      url: '/api/reguser',
-      // url: baseUrl +'/api/reguser',
+      url: baseUrl +'/api/reguser',
       data:{
         username:$('#form_reg [name=username]').val(),
         password:$('#form_reg [name=password]').val(),
@@ -58,7 +57,7 @@ $(function () {
     e.preventDefault();
     $.ajax({
       type: 'POST',
-      url:'/api/login',
+      url:baseUrl + '/api/login',
       // url:baseUrl + '/api/login',
       data:$(this).serialize(),
       success: (res)=>{

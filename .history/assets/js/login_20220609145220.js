@@ -28,7 +28,7 @@ $(function () {
   });
 
   // 基本路径
-  // const baseUrl = "http://www.liulongbin.top:3007";
+  const baseUrl = "http://www.liulongbin.top:3007";
 
   // 监听表单提交事件，发送注册请求
   $('#form_reg').submit((e) => {
@@ -37,39 +37,10 @@ $(function () {
     // 发起注册的请求
     $.ajax({
       type:'POST',
-      url: '/api/reguser',
-      // url: baseUrl +'/api/reguser',
+      url: baseUrl +'/api/reguser',
       data:{
-        username:$('#form_reg [name=username]').val(),
-        password:$('#form_reg [name=password]').val(),
-      },
-      success:(res)=>{
-        if(res.status !==0) 
-          return layer.msg(res.message);
-        layer.msg('注册成功！')
-        // 成功注册，模拟点击事件，跳转到登录
-        $('#link_login').click();
+        username:$('#form_reg []')
       }
     })
   });
-
-  // 监听登录表单提交事件，发送登录请求
-  $('#form_login').submit(function(e){
-    e.preventDefault();
-    $.ajax({
-      type: 'POST',
-      url:'/api/login',
-      // url:baseUrl + '/api/login',
-      data:$(this).serialize(),
-      success: (res)=>{
-        if(res.status!==0)return layer.msg('登录失败！');
-        layer.msg('登录成功！');
-        // 要把token存在本地
-        localStorage.setItem('token',res.token);
-        // 跳转到首页
-        location.href = '/index.html';
-      },
-    })
-  })
-
 });
