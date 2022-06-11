@@ -16,7 +16,7 @@ $(function() {
                 success: (res) => {
                 if (res.status !== 0) return layer.msg("获取用户信息失败！");
                 // console.log(res);
-                layer.msg('获取用户信息成功！')
+                // layer.msg('获取用户信息成功！')
                 // 填充表单
                 form.val("formUserInfo", res.data);
             },
